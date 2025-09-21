@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #ffe6f2; /* light pink */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            image-rendering: pixelated;
+        }
+        .gift-wrap {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #ff66b2; /* bright pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 1.5s ease-in-out;
+            flex-direction: column;
+        }
+        .ribbon {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ffb3d9 0px, #ffb3d9 10px,
+                #ff80bf 10px, #ff80bf 20px
+            );
+            top: 50%;
+            transform: translateY(-50%);
+            image-rendering: pixelated;
+        }
+        .bow {
+            position: absolute;
+            width: 600px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+        .container {
+            display: none;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #cc0066; /* darker pink */
+            animation: bounce 1.5s infinite;
+        }
+        p {
+            max-width: 900px;
+            margin: 10px auto;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #800040;
+            white-space: pre-line; /* preserves line breaks */
+        }
+        .ps-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffb3d9;
+            border: 2px dashed #cc0066;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #660033;
+            display: inline-block;
+            max-width: 90%;
+            white-space: pre-line; /* preserves line breaks */
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .cake {
+            width: 90vw;
+            max-width: 900px;
+            height: auto;
+            margin-top: 20px;
+            image-rendering: pixelated;
+        }
+        .btn {
+            background-color: #ff4da6; /* hot pink */
+            border: 3px solid #cc0066;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px #800040;
+        }
+        .btn:hover {
+            background-color: #cc0066; /* darker pink hover */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+</head>
+<body>
+    <div class="gift-wrap" id="giftWrap">
+        <div class="ribbon"></div>
+        <img class="bow" src="pinkbow.png" alt="Bow">
+    </div>
+
+    <div class="container" id="content">
+        <h1>HAPPY BDAY SULTYYY 🎉</h1>
+        <img class="cake" src="sultcake.png" alt="Birthday Cake">
+
+        <p>Finally 8 years old, mashaAllah!! May Allah grant you a long, healthy, and righteous life upon deen, ameen. We love you so much sultan, and we can't wait to celebrate with you one day in sha Allah, we hope you have a good day ahead and have lots of fun and giggles 😇 - from amir and aafiya</p>
+
+        <div class="ps-note">
+P.S - Happy birthday sultan. Hope you have fun I miss you 😘 be a good girl be safe 😘👑 i love you. Inshallah we’ll meet soon cutie. - from aafiya&lt;3
+        </div>
+
+        <button class="btn" onclick="startConfetti()">Click for confetti!</button>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("giftWrap").style.transform = "scale(0)";
+            document.getElementById("content").style.display = "block";
+        }, 2000);
+
+        function startConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#ff66b2', '#ffb3d9', '#ffffff'] // pink + white confetti
+            });
+        }
+    </script>
+</body>
+</html>
